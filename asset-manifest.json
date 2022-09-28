@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hyeon-website/static/css/main.a446d9a4.css",
+    "main.js": "/hyeon-website/static/js/main.d2b60480.js",
+    "index.html": "/hyeon-website/index.html",
+    "main.a446d9a4.css.map": "/hyeon-website/static/css/main.a446d9a4.css.map",
+    "main.d2b60480.js.map": "/hyeon-website/static/js/main.d2b60480.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a446d9a4.css",
+    "static/js/main.d2b60480.js"
+  ]
+}
