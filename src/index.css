@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+:root {
+    --textblue: #14274E;
+    --textgray: #394867;
+    --backgroundwhite: #F1F6F9;
+    --backgroundgray: #9BA4B4;
+}
+
+body {
+    margin: 0;
+    background-color: var(--backgroundwhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Navigation Bar */
+
+.navbar__container {
+    background-color: var(--backgroundwhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    
+}
+
+.navbar__name {
+    font-size: 50px;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--textblue);
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.navbar__menu a {
+    padding: 8px 12px;
+}
+
+.navbar__menu a:hover {
+    background-color: var(--textblue);
+    color: var(--backgroundwhite);
+    border-radius: 4px;
+}
+
+.navbar__toggleBtn {
+    display: none;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 850px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: right;
+        width: 85%;
+    }
+
+    .navbar__menu li {
+        margin: 5px 5px;
+    }
+
+    .navbar__toggleBtn {
+        display: block;
+    }
+
+    .navbar__menu.active {
+        display: flex;
+        margin: 0;
+    }
+}
