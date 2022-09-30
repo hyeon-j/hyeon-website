@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hyeon-website/static/css/main.a446d9a4.css",
-    "main.js": "/hyeon-website/static/js/main.d2b60480.js",
+    "main.css": "/hyeon-website/static/css/main.8eb326fe.css",
+    "main.js": "/hyeon-website/static/js/main.71745c9b.js",
     "index.html": "/hyeon-website/index.html",
-    "main.a446d9a4.css.map": "/hyeon-website/static/css/main.a446d9a4.css.map",
-    "main.d2b60480.js.map": "/hyeon-website/static/js/main.d2b60480.js.map"
+    "main.8eb326fe.css.map": "/hyeon-website/static/css/main.8eb326fe.css.map",
+    "main.71745c9b.js.map": "/hyeon-website/static/js/main.71745c9b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a446d9a4.css",
-    "static/js/main.d2b60480.js"
+    "static/css/main.8eb326fe.css",
+    "static/js/main.71745c9b.js"
   ]
 }
