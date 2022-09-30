@@ -1,0 +1,114 @@
+.navbar__container {
+    /* var(--backgroundgray) */
+    background-color: var(--backgrounddark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-style: solid;
+    border-bottom: 2px;
+    border-color: var(--textdark);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    color: var(--textdark);
+    border-bottom: 5px solid var(--textdark)red;
+    
+    text-decoration: none;
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.navbar__name {
+    font-size: 50px;
+    padding: 0;
+    text-decoration: none;
+    color: var(--textdark);
+}
+
+.navbar__name__link {
+    font-size: 50px;
+    padding: 0;
+    text-decoration: none;
+    color: var(--textdark);
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    transition-duration: 1000ms;
+}
+
+.navbar__menu__links {
+    text-decoration: none;
+    color: var(--textdark);
+    font-family: 'Reem Kufi Ink', sans-serif;
+    padding: 8px 12px;
+    margin-left: 5px;
+}
+
+.navbar__menu__links:hover {
+    background-color: var(--textdark);
+    color: var(--backgroundlight);
+    border-radius: 4px;
+    transition: all 0.75s ease-out;
+}
+
+.navbar__toggleBtn {
+    display: none;
+    size: 15px;
+    height: 35px;
+    all: unset;
+    cursor: pointer;
+}
+
+.navbar__toggleBtn__icon {
+    display: none;
+}
+
+.navbar__toggleBtn__icon {
+    font-size: 35px;
+}
+
+@media screen and (max-width: 1150px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    .navbar__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: right;
+        width: 85%;
+        display: none;
+    }
+
+    .navbar__menu li {
+        margin: 5px 5px;
+    }
+
+    .navbar__toggleBtn {
+        display: block;
+    }
+
+    .navbar__toggleBtn__icon {
+        display: block;
+    }
+
+    .active {
+        display: flex;
+    }
+}

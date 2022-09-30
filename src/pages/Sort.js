@@ -1,8 +1,8 @@
 import React, { useState, useRef, Link} from 'react'
-import Nav from './components/Nav.js'
+// import Navbar from '../components/Navbar/Navbar.js'
 
 export default function Sort() {
   return (
-    <div>This is sorting alg</div>
+    <h1>SORT</h1>
   )
 }

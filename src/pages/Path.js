@@ -1,10 +1,10 @@
 import React from 'react'
-import Nav from './components/Nav.js'
+// import Navbar from '../components/Navbar/Navbar.js'
 
 export default function Path() {
   return (
     <>
-      <div>Path alg</div>
+      <h1>PATH</h1>
     </>
     
   )
