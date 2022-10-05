@@ -5,7 +5,7 @@ import './index.css'
 import { MdClearAll } from "react-icons/fa";
 
 import Path from './pages/Path';
-import Sort from './pages/Sort'
+import Sort from './pages/Sort/Sort'
 import Home from './pages/Home'
 import Navbar from './components/Navbar/Navbar.js'
 
@@ -13,13 +13,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='container'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/path' element={<Path />} />
-          <Route path='/sort' element={<Sort />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/path' element={<Path />} />
+        <Route path='/sort' element={<Sort />} />
+      </Routes>
       
     </>
   );

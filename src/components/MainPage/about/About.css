@@ -1,0 +1,51 @@
+
+.about__container {
+    /* background-color: var(--backgroundlight); */
+    background-color: var(--backgroundlight);;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.about__contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0%;
+    width: 60%;
+}
+
+.about__header {
+    font-size: 20px;
+    color: var(--textlight);
+}
+
+.about__horizontal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__horizontal__background {
+    width: 65%;
+}
+.about__horizontal__skills {
+    width: 35%;
+}
+
+.about__vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about__vertical__experiences {
+    width: 100%;
+}
+
+.about__vertical__education {
+    width: 100%;
+}

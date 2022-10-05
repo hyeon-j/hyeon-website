@@ -1,0 +1,35 @@
+
+
+.intro__container {
+    background-color: var(--backgrounddark);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.intro__contents {
+    display: flex;
+    /* var(--backgrounddark) */
+    /* background-color: var(--backgrounddark); */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+    width: 60%;
+}
+
+.intro__text {
+    font-family: 'Reem Kufi Ink', sans-serif;
+    font-size: 75px;
+    color: var(--textdark);
+}
+
+.intro__image__container {
+    margin-left: 40px;
+}
+
+.intro__image {
+    border-radius: 75px;
+}
