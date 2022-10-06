@@ -21,7 +21,7 @@
 }
 
 .intro__text {
-    font-family: 'Reem Kufi Ink', sans-serif;
+    font-family: eightbit;
     font-size: 75px;
     color: var(--textdark);
 }

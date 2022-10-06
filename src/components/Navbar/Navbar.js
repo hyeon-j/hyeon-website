@@ -13,7 +13,7 @@ export default function Nav() {
     function menuItemsHTML(item, index) {
         return (
             <li key={index}>
-                <Link to={item.url} class={item.cName}>
+                <Link to={item.url} className={item.cName}>
                     {item.title}
                 </Link>
             </li>
@@ -30,15 +30,15 @@ export default function Nav() {
 
     return (
         <>
-            <div class='navbar__container'>
-                <nav class='navbar'>
-                    <div class='navbar__name'>
-                        <Link to='/' class='navbar__name__link'>HYEON</Link>
-                        <button class='navbar__toggleBtn' onClick={handleClicked}>
+            <div className='navbar__container'>
+                <nav className='navbar'>
+                    <div className='navbar__name'>
+                        <Link to='/' className='navbar__name__link'>HYEON</Link>
+                        <button className='navbar__toggleBtn' onClick={handleClicked}>
                             {clicked ? <FiX className='navbar__toggleBtn__icon'/> : <FiMenu className='navbar__toggleBtn__icon'/>}
                         </button>
                     </div>
-                    <ul class={clicked ? 'navbar__menu active' : 'navbar__menu'}>
+                    <ul className={clicked ? 'navbar__menu active' : 'navbar__menu'}>
                         {MenuItems.map((item, index) => {
                             return menuItemsHTML(item, index)
                         })}
