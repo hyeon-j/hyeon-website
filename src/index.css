@@ -2,16 +2,18 @@
 
 
 :root {
-    --textdark: #1C3879;
-    --textlight: #607EAA;
-    --backgrounddark: #EAE3D2;
-    --backgroundlight: #F9F5EB;
+    --black: black;
+    --gray: #b8b7b7;
+    --white: #EAE3D2;
+    --purple: #5800FF;
+    --pink: #E900FF;
+    --turquoise: #00ffc8;
 }
 
 body {
     margin: 0;
     /* background-color: var(--backgroundlight); */
-    background-color: gray;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;

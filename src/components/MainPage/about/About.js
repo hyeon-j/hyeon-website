@@ -1,82 +1,88 @@
-import React from 'react'
+import React from "react";
 
-import { Background, Skills, Experiences, Education } from './AboutMeItems'
+import { Background, Skills, Experiences, Education } from "./AboutMeItems";
 
-import './About.css'
+import "./About.css";
 
 export default function AboutMe() {
-
     // Skill Item HTML Rendering
     function skillItemsHTML(item, index) {
         return (
-            <li key={index}> {item.skill} </li>
-        )
+            <li key={index} className="about__skill">
+                {item.skill}
+            </li>
+        );
     }
     //  Experience HTML Rendering
     function experienceItemsHTML(item, index) {
         return (
-            <li key={index}> 
-                {item.role} <br></br>
-                {item.company} <br></br>
-                {item.time} <br></br>
-                {item.description} 
+            <li key={index}>
+                <p className="about__experience__role">{item.role}</p>
+                <p className="about__experience__company">{item.company}</p>
+                <p className="about__experience__time">{item.time}</p>
+                {item.description.map((item, index) => {
+                    return experienceDescription(item, index);
+                })}
             </li>
-        )
+        );
     }
+
+    function experienceDescription(item, index) {
+        return <p className="about__experience__desc">{item}</p>;
+    }
+
     // Education Item HTML Rendering
     function educationItemsHTML(item, index) {
         return (
-            <li key={index}> 
+            <li key={index}>
                 {item.school} <br></br>
                 {item.level} <br></br>
                 {item.major} <br></br>
-                {item.time} 
+                {item.time}
             </li>
-        )
+        );
     }
 
     return (
         <>
-            <div className='about__container'>
-                <div className='about__contents'>
-                    <div className='about__horizontal'>
-                        <div className='about__horizontal__background'> 
-                            <h1 className='about__header'>MY BACKGROUND</h1>
-                            <p>{Background[0].text}</p>
-                        </div>
-                        <div className='about__horizontal__skills'>
-                            <h1 className='about__header'>SKILLS</h1>
-                            <ul>
-                                {Skills.map((item, index) => {
-                                    return skillItemsHTML(item, index)
-                                })}
-                            </ul>
-                        </div>
+            <button
+                onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                }}
+            ></button>
+            <div className="about__container" id="about">
+                <div className="about__contents">
+                    <h1 className="about__banner">About Me:</h1>
+                    <div className="about__background">
+                        <div className="about__header">— MY BACKGROUND</div>
+                        <p>{Background[0].text}</p>
                     </div>
-                    <div className='about__vertical'>
-                        <div className='about__vertical__experiences'>
-                            <h1 className='about__header'>EXPERIENCES</h1>
-                            <ul>
-                                {Experiences.map((item, index) => {
-                                    return experienceItemsHTML(item, index)
-                                })}
-                            </ul>
-                        </div>
-                        <div className='about__vertical__education'>
-                            <h1 className='about__header'>EDUCATION</h1>
-                            <ul>
-                                {Education.map((item, index) => {
-                                    return educationItemsHTML(item, index)
-                                })}
-                            </ul>
-                        </div>
+                    <div className="about__skills">
+                        <div className="about__header">— SKILLS</div>
+                        <ul>
+                            {Skills.map((item, index) => {
+                                return skillItemsHTML(item, index);
+                            })}
+                        </ul>
+                    </div>
+                    <div className="about__experiences">
+                        <div className="about__header">— EXPERIENCES</div>
+                        <ul>
+                            {Experiences.map((item, index) => {
+                                return experienceItemsHTML(item, index);
+                            })}
+                        </ul>
+                    </div>
+                    <div className="about__education">
+                        <div className="about__header">— EDUCATION</div>
+                        <ul>
+                            {Education.map((item, index) => {
+                                return educationItemsHTML(item, index);
+                            })}
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
-
-
         </>
-    )
+    );
 }

@@ -1,44 +1,46 @@
 export const ProjectsList = [
     {
-        title: 'Sorting Algorithm Visualizer',
-        description: 'Placeholder',
-        interactive_link: '/sort',
-        github_link: '#',
-        interactive: true
+        title: "SORTING ALGORITHM VISUALIZER (Click for Interactive Page)",
+        description:
+            "Interactive Merge, Bubble & Quick Sort algorithm visualizer.\
+      Built using REACT.",
+        interactive_link: "/sort",
+        github_link: "#",
+        interactive: true,
+    },
+    // {
+    //   title: "PATH FINDING ALGORITHM VISUALIZER",
+    //   description: "Placeholder",
+    //   interactive_link: "/path",
+    //   github_link: "#",
+    //   interactive: true,
+    // },
+    {
+        title: "HEART FAILURE PREDICTION",
+        description: "Placeholder",
+        interactive_link: "#",
+        github_link: "#",
+        interactive: false,
     },
     {
-        title: 'Path Finding Algorithm Visualizer',
-        description: 'Placeholder',
-        interactive_link: '/path',
-        github_link: '#',
-        interactive: true
+        title: "BANK SUBSCRIPTION PREDICTION",
+        description: "Placeholder",
+        interactive_link: "#",
+        github_link: "#",
+        interactive: false,
     },
     {
-        title: 'Heart Failure Prediction',
-        description: 'Placeholder',
-        interactive_link: '#',
-        github_link: '#',
-        interactive: false
+        title: "BOOKSTORE",
+        description: "Placeholder",
+        interactive_link: "#",
+        github_link: "#",
+        interactive: false,
     },
     {
-        title: 'Bank Subscription Prediction',
-        description: 'Placeholder',
-        interactive_link: '#',
-        github_link: '#',
-        interactive: false
+        title: "INDEED.COM WEB SCRAPPER USING GOLANG",
+        description: "Placeholder",
+        interactive_link: "#",
+        github_link: "#",
+        interactive: false,
     },
-    {
-        title: 'Bookstore',
-        description: 'Placeholder',
-        interactive_link: '#',
-        github_link: '#',
-        interactive: false
-    },
-    {
-        title: 'Indeed.com Web Scrapper using Golang',
-        description: 'Placeholder',
-        interactive_link: '#',
-        github_link: '#',
-        interactive: false
-    },
-]
+];

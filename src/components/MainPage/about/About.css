@@ -6,46 +6,56 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 50px 0px;
+    padding: 50px 0;
     font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.about__banner {
+    color: red;
+}
+
+.about__banner:hover {
+    color: white;
+    transition: all 0.75s ease-out;
 }
 
 .about__contents {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding: 0%;
-    width: 60%;
+    width: 75%;
+
+    color: white;
 }
 
 .about__header {
     font-size: 20px;
-    color: var(--textlight);
+    color: var(--gray);
+    width: fit-content;
 }
 
-.about__horizontal {
-    display: flex;
-    justify-content: space-between;
+.about__header:hover {
+    color: red;
+    transition: all 0.75s ease-out;
 }
 
-.about__horizontal__background {
-    width: 65%;
-}
-.about__horizontal__skills {
-    width: 35%;
+.about__background {
+    margin-bottom: 25px;
 }
 
-.about__vertical {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.about__skills {
+    margin: 25px 0;
 }
 
-.about__vertical__experiences {
-    width: 100%;
+.about__skill {
+    list-style: none;
 }
 
-.about__vertical__education {
-    width: 100%;
+.about__experiences {
+    margin: 25px 0;
+}
+
+.about__education {
+    margin-top: 25px;
 }
