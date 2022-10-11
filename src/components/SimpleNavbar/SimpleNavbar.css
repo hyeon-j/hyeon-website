@@ -1,0 +1,44 @@
+.simplenavbar__container {
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.simplenavbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    color: var(--white);
+
+    background-color: var(--black);
+
+    position: fixed;
+    top: 10px;
+
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 40px;
+    
+    text-decoration: none;
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.simplenavbar:hover {
+    border-color: red;
+    transition: all 0.75s ease-out;
+}
+
+.simplenavbar__name__link {
+    font-size: 25px;
+    padding: 0;
+    text-decoration: none;
+    color: var(--white);
+}
+.simplenavbar__name__link:hover {
+    color: red;
+    transition: all 0.75s ease-out;
+}

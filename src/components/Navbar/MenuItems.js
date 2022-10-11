@@ -16,7 +16,7 @@ export const MenuItems = [
     // },
     {
         title: "CONTACT",
-        url: "#",
+        url: "#contact",
         cName: "navbar__menu__links",
     },
 ];

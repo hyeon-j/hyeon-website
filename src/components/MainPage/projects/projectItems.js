@@ -1,12 +1,11 @@
-export const ProjectsList = [
+export const featuredProjectsList = [
     {
-        title: "SORTING ALGORITHM VISUALIZER (Click for Interactive Page)",
+        title: "SORTING ALGORITHM VISUALIZER",
         description:
-            "Interactive Merge, Bubble & Quick Sort algorithm visualizer.\
-      Built using REACT.",
+            "Interactive Merge, Bubble & Quick Sort algorithm visualizer. Able to customize amounts of bar and animation speed.",
         interactive_link: "/sort",
-        github_link: "#",
-        interactive: true,
+        github_link: "https://github.com/hyeon-j/hyeon-website",
+        tags: ["JavaScript", "React"],
     },
     // {
     //   title: "PATH FINDING ALGORITHM VISUALIZER",
@@ -15,6 +14,9 @@ export const ProjectsList = [
     //   github_link: "#",
     //   interactive: true,
     // },
+];
+
+export const ProjectsList = [
     {
         title: "HEART FAILURE PREDICTION",
         description: "Placeholder",

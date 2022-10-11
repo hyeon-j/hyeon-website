@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
 
+import { HashLink } from "react-router-hash-link";
+
 // Styling
 import "./Navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -12,9 +14,9 @@ export default function Nav() {
     function menuItemsHTML(item, index) {
         return (
             <li key={index}>
-                <a href={item.url} className={item.cName}>
+                <HashLink smooth to={item.url} className={item.cName}>
                     {item.title}
-                </a>
+                </HashLink>
             </li>
         );
     }
@@ -32,12 +34,9 @@ export default function Nav() {
             <div className="navbar__container">
                 <nav className="navbar">
                     <div className="navbar__name">
-                        <Link
-                            to="/hyeon-website"
-                            className="navbar__name__link"
-                        >
+                        <HashLink smooth to="#" className="navbar__name__link">
                             HYEON
-                        </Link>
+                        </HashLink>
                         <button
                             className="navbar__toggleBtn"
                             onClick={handleClicked}

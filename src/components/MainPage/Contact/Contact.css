@@ -1,0 +1,131 @@
+.contact__container {
+    background-color: var(--backgroundlight);;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    font-family: 'Reem Kufi Ink', sans-serif;
+}
+
+.contact__contents {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    padding: 0%;
+    width: 75%;
+
+    color: white;
+}
+
+.contact__banner {
+    color: var(--white);
+}
+
+.contact__banner:hover {
+    color: var(--red);
+    transition: all 0.75s ease-out;
+}
+
+.contact__contents__wrapper {
+    display: flex;
+    justify-content: left;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.contact__info__container {
+    width: 45%;
+    margin-right: 10%;
+}
+
+.contact__info {
+    display: flex;
+    align-items: center;
+    background-color: var(--offblack);
+    margin-bottom: 35px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+.contact__icon {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 30px;
+    padding: 3px;
+    margin-right: 10px;
+    border-radius: 10px;
+}   
+
+.contact__form__container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.contact__form__label {
+    margin-bottom: 5px;
+}
+
+.contact__input__normal {
+    background-color: var(--offblack);
+    border: 1px solid var(--white);
+    border-radius: 2px;
+    height: 35px;
+    font-size: 18px;
+    color: white;
+}
+
+.contact__input__big {
+    background-color: var(--offblack);
+    border: 1px solid var(--white);
+    border-radius: 2px;
+    height: 180px;
+    font-size: 18px;
+    color: white;
+    resize: vertical;
+}
+
+.contact__form__submit {
+    background-color: var(--offblack);
+    border: 1px solid var(--white);
+
+    color: white;
+
+    padding: 10px;
+    font-size: 15px;
+    
+}
+
+@media screen and (max-width: 875px) {
+    .contact__contents__wrapper {
+        flex-direction: column;
+    }
+
+    .contact__info__container {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .contact__form__container {
+        width: 100%;
+    }
+}

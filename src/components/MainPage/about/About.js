@@ -28,7 +28,11 @@ export default function AboutMe() {
     }
 
     function experienceDescription(item, index) {
-        return <p className="about__experience__desc">{item}</p>;
+        return (
+            <p className="about__experience__desc" key={index}>
+                {item}
+            </p>
+        );
     }
 
     // Education Item HTML Rendering
@@ -45,11 +49,6 @@ export default function AboutMe() {
 
     return (
         <>
-            <button
-                onClick={() => {
-                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                }}
-            ></button>
             <div className="about__container" id="about">
                 <div className="about__contents">
                     <h1 className="about__banner">About Me:</h1>

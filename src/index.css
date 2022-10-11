@@ -4,10 +4,12 @@
 :root {
     --black: black;
     --gray: #b8b7b7;
+    --offblack : #111111;
     --white: #EAE3D2;
     --purple: #5800FF;
     --pink: #E900FF;
     --turquoise: #00ffc8;
+    --red: #ff0000;
 }
 
 body {
