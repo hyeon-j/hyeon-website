@@ -1,207 +1,217 @@
 import React, { useState, useRef, Link, useEffect } from "react";
 import "./Sort.css";
 import {
-  mergeSortAnimations,
-  bubbleSortAnimations,
-  insertionSortAnimations,
-  quickSortVisualizer,
+    mergeSortAnimations,
+    bubbleSortAnimations,
+    insertionSortAnimations,
+    quickSortVisualizer,
 } from "./SortingAlgorithms";
-
-// :root {
-//     --black: black;
-//     --gray: #c7c7c7;
-//     --white: #f1fffc;
-//     --purple: #5800FF;
-//     --pink: #E900FF;
-//     --turquoise: #00ffc8;
-// }
 
 const MAIN_COLOR = "#EAE3D2";
 const CHANGE_COLOR = "red";
 
 export default function Sort() {
-  const [array, setArray] = useState([]);
-  const [value, setValue] = useState(window.innerWidth / 4 - 20);
-  const [speed, setSpeed] = useState(0.5);
+    const [array, setArray] = useState([]);
+    const [value, setValue] = useState(window.innerWidth / 4 - 20);
+    const [speed, setSpeed] = useState(0.5);
 
-  function resetArray() {
-    const arr = [];
-    for (let i = 0; i < value; i++) {
-      arr.push(randomInt(10, 750));
-    }
-    setArray(arr);
-  }
+    function resetArray() {
+        const arr = [];
 
-  // When Component Mounts
-  useEffect(() => {
-    resetArray();
-  }, []);
-
-  function mergeSortButton() {
-    const animations = mergeSortAnimations(array);
-    for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName("sort__array__bar");
-      const isColorChange = i % 3 !== 2;
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? CHANGE_COLOR : MAIN_COLOR;
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        }, (i * speed) / 3);
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, (i * speed) / 3);
-      }
-    }
-  }
-
-  function bubbleSortButton() {
-    const animations = bubbleSortAnimations(array.slice());
-    for (let i = 0; i < animations.length; i++) {
-      let arrayBars = document.getElementsByClassName("sort__array__bar");
-      let [barOneIndex, barTwoIndex, swap] = animations[i];
-      setTimeout(() => {
-        if (i % 2 == 1) {
-          const barOne = arrayBars[barOneIndex];
-          const barTwo = arrayBars[barTwoIndex];
-
-          barOne.style.backgroundColor = MAIN_COLOR;
-          barTwo.style.backgroundColor = MAIN_COLOR;
-        } else {
-          const barOne = arrayBars[barOneIndex];
-          const barTwo = arrayBars[barTwoIndex];
-
-          barOne.style.backgroundColor = CHANGE_COLOR;
-          barTwo.style.backgroundColor = CHANGE_COLOR;
-
-          if (swap) {
-            let barOneHeight = barOne.offsetHeight;
-            let barTwoHeight = barTwo.offsetHeight;
-
-            barOne.style.height = `${barTwoHeight}px`;
-            barTwo.style.height = `${barOneHeight}px`;
-          }
+        for (let i = 0; i < value; i++) {
+            arr.push(randomInt(10, 750));
         }
-      }, (i * speed) / 2);
-    }
-  }
 
-  function quickSortButton() {
-    const animations = quickSortVisualizer(array);
-    let first = true;
-    for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName("sort__array__bar");
-      const [pivotIndex, swapIndex, isPivot] = animations[i];
-      setTimeout(() => {
-        if (isPivot && first) {
-          const pivotBar = arrayBars[pivotIndex];
-          const pivotBarStyle = pivotBar.style;
-          pivotBarStyle.backgroundColor = CHANGE_COLOR;
-          first = false;
-        } else if (isPivot && !first) {
-          const pivotBar = arrayBars[pivotIndex];
-          const pivotBarStyle = pivotBar.style;
-          const swapBar = arrayBars[swapIndex];
-          const swapBarStyle = swapBar.style;
-          let pivotBarHeight = pivotBar.offsetHeight;
-          let swapBarHeight = swapBar.offsetHeight;
-          pivotBarStyle.height = `${swapBarHeight}px`;
-          swapBarStyle.height = `${pivotBarHeight}px`;
-          for (let j = 0; j < arrayBars.length; j++) {
-            const bar = arrayBars[j];
-            bar.style.backgroundColor = MAIN_COLOR;
-          }
-          first = true;
-        } else {
-          const pivotBar = arrayBars[pivotIndex];
-          const pivotBarStyle = pivotBar.style;
-          const swapBar = arrayBars[swapIndex];
-          const swapBarStyle = swapBar.style;
-          pivotBarStyle.backgroundColor = CHANGE_COLOR;
-          swapBarStyle.backgroundColor = CHANGE_COLOR;
-          let pivotBarHeight = pivotBar.offsetHeight;
-          let swapBarHeight = swapBar.offsetHeight;
-          pivotBarStyle.height = `${swapBarHeight}px`;
-          swapBarStyle.height = `${pivotBarHeight}px`;
+        setArray(arr);
+    }
+
+    // When Component Mounts
+    useEffect(() => {
+        resetArray();
+    }, []);
+
+    function mergeSortButton() {
+        const animations = mergeSortAnimations(array);
+        for (let i = 0; i < animations.length; i++) {
+            const arrayBars =
+                document.getElementsByClassName("sort__array__bar");
+            const isColorChange = i % 3 !== 2;
+            if (isColorChange) {
+                const [barOneIdx, barTwoIdx] = animations[i];
+                const barOneStyle = arrayBars[barOneIdx].style;
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                const color = i % 3 === 0 ? CHANGE_COLOR : MAIN_COLOR;
+                setTimeout(() => {
+                    barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color;
+                }, (i * speed) / 3);
+            } else {
+                setTimeout(() => {
+                    const [barOneIdx, newHeight] = animations[i];
+                    const barOneStyle = arrayBars[barOneIdx].style;
+                    barOneStyle.height = `${newHeight}px`;
+                }, (i * speed) / 3);
+            }
         }
-      }, i * speed);
     }
-  }
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+    function bubbleSortButton() {
+        const animations = bubbleSortAnimations(array.slice());
+        for (let i = 0; i < animations.length; i++) {
+            let arrayBars = document.getElementsByClassName("sort__array__bar");
+            let [barOneIndex, barTwoIndex, swap] = animations[i];
+            setTimeout(() => {
+                if (i % 2 == 1) {
+                    const barOne = arrayBars[barOneIndex];
+                    const barTwo = arrayBars[barTwoIndex];
 
-  return (
-    <>
-      <div className="sort__container">
-        <div className="sort__bar__container">
-          {array.map((val, index) => (
-            <div
-              className="sort__array__bar"
-              key={index}
-              style={{ backgroundColor: MAIN_COLOR, height: `${val}px` }}
-            ></div>
-          ))}
-        </div>
-        <nav className="sort__controls">
-          <button className="sort__buttons" onClick={refreshPage}>
-            GENERATE NEW ARRAY
-          </button>
-          <button className="sort__buttons" onClick={() => mergeSortButton()}>
-            MERGE SORT
-          </button>
-          <button className="sort__buttons" onClick={() => bubbleSortButton()}>
-            BUBBLE SORT
-          </button>
-          <button className="sort__buttons" onClick={() => quickSortButton()}>
-            QUICK SORT
-          </button>
-          <div className="sort__range__container">
-            <div className="sort__range__info">
-              <p>Number of Bars:</p>
-              <p>Animation Speed:</p>
+                    barOne.style.backgroundColor = MAIN_COLOR;
+                    barTwo.style.backgroundColor = MAIN_COLOR;
+                } else {
+                    const barOne = arrayBars[barOneIndex];
+                    const barTwo = arrayBars[barTwoIndex];
+
+                    barOne.style.backgroundColor = CHANGE_COLOR;
+                    barTwo.style.backgroundColor = CHANGE_COLOR;
+
+                    if (swap) {
+                        let barOneHeight = barOne.offsetHeight;
+                        let barTwoHeight = barTwo.offsetHeight;
+
+                        barOne.style.height = `${barTwoHeight}px`;
+                        barTwo.style.height = `${barOneHeight}px`;
+                    }
+                }
+            }, (i * speed) / 2);
+        }
+    }
+
+    function quickSortButton() {
+        const animations = quickSortVisualizer(array);
+        let first = true;
+        for (let i = 0; i < animations.length; i++) {
+            const arrayBars =
+                document.getElementsByClassName("sort__array__bar");
+            const [pivotIndex, swapIndex, isPivot] = animations[i];
+            setTimeout(() => {
+                if (isPivot && first) {
+                    const pivotBar = arrayBars[pivotIndex];
+                    const pivotBarStyle = pivotBar.style;
+                    pivotBarStyle.backgroundColor = CHANGE_COLOR;
+                    first = false;
+                } else if (isPivot && !first) {
+                    const pivotBar = arrayBars[pivotIndex];
+                    const pivotBarStyle = pivotBar.style;
+                    const swapBar = arrayBars[swapIndex];
+                    const swapBarStyle = swapBar.style;
+                    let pivotBarHeight = pivotBar.offsetHeight;
+                    let swapBarHeight = swapBar.offsetHeight;
+                    pivotBarStyle.height = `${swapBarHeight}px`;
+                    swapBarStyle.height = `${pivotBarHeight}px`;
+                    for (let j = 0; j < arrayBars.length; j++) {
+                        const bar = arrayBars[j];
+                        bar.style.backgroundColor = MAIN_COLOR;
+                    }
+                    first = true;
+                } else {
+                    const pivotBar = arrayBars[pivotIndex];
+                    const pivotBarStyle = pivotBar.style;
+                    const swapBar = arrayBars[swapIndex];
+                    const swapBarStyle = swapBar.style;
+                    pivotBarStyle.backgroundColor = CHANGE_COLOR;
+                    swapBarStyle.backgroundColor = CHANGE_COLOR;
+                    let pivotBarHeight = pivotBar.offsetHeight;
+                    let swapBarHeight = swapBar.offsetHeight;
+                    pivotBarStyle.height = `${swapBarHeight}px`;
+                    swapBarStyle.height = `${pivotBarHeight}px`;
+                }
+            }, i * speed);
+        }
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
+    return (
+        <>
+            <div className="sort__container">
+                <div className="sort__bar__container">
+                    {array.map((val, index) => (
+                        <div
+                            className="sort__array__bar"
+                            key={index}
+                            style={{
+                                backgroundColor: MAIN_COLOR,
+                                height: `${val}px`,
+                                width: `${
+                                    window.innerWidth / (value + 20) - 2
+                                }px`,
+                            }}
+                        ></div>
+                    ))}
+                </div>
+                <nav className="sort__controls">
+                    <button className="sort__buttons" onClick={resetArray}>
+                        GENERATE NEW ARRAY
+                    </button>
+                    <button
+                        className="sort__buttons"
+                        onClick={() => mergeSortButton()}
+                    >
+                        MERGE SORT
+                    </button>
+                    <button
+                        className="sort__buttons"
+                        onClick={() => bubbleSortButton()}
+                    >
+                        BUBBLE SORT
+                    </button>
+                    <button
+                        className="sort__buttons"
+                        onClick={() => quickSortButton()}
+                    >
+                        QUICK SORT
+                    </button>
+                    <div className="sort__range__container">
+                        <div className="sort__range__info">
+                            <p>Number of Bars:</p>
+                            <p>Animation Speed:</p>
+                        </div>
+                        <div className="sort__range">
+                            <input
+                                type="range"
+                                value={value}
+                                min={10}
+                                max={window.innerWidth / 4 - 20}
+                                onChange={(e) => {
+                                    setValue(e.target.valueAsNumber);
+                                    resetArray();
+                                }}
+                                className="sort__range__bar"
+                            />
+
+                            <input
+                                type="range"
+                                value={speed}
+                                min={0.5}
+                                max={1000}
+                                onChange={(e) => {
+                                    setSpeed(e.target.valueAsNumber);
+                                }}
+                                className="sort__range__bar"
+                            />
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div className="sort__range">
-              <input
-                type="range"
-                value={value}
-                min={10}
-                max={window.innerWidth / 4 - 20}
-                onChange={(e) => {
-                  setValue(e.target.valueAsNumber);
-                  resetArray();
-                }}
-                className="sort__range__bar"
-              />
-
-              <input
-                type="range"
-                value={speed}
-                min={0.5}
-                max={1000}
-                onChange={(e) => {
-                  setSpeed(e.target.valueAsNumber);
-                }}
-                className="sort__range__bar"
-              />
-            </div>
-          </div>
-        </nav>
-      </div>
-    </>
-  );
+        </>
+    );
 }
 
 // Random Number Interval from Min to Max
 function randomInt(min, max) {
-  return min + Math.floor(Math.random() * (max - min));
+    return min + Math.floor(Math.random() * (max - min));
 }
 
 // // Used to test My merge sort algorithm

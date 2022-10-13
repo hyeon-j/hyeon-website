@@ -6,16 +6,30 @@ export const Background = [
 
 export const Skills = [
     {
-        skill: "Skill 1",
+        skill: "JavaScript",
+        subSkill: ["React", "HTML", "CSS"],
     },
     {
-        skill: "Skill 2",
+        skill: "Python",
+        subSkill: ["Machine Learning", "scikit-learn", "pandas", "Flask"],
     },
     {
-        skill: "Skill 3",
+        skill: "Database",
+        subSkill: [
+            "sqlite3",
+            "PostgreSQL",
+            "Schema Structure",
+            "ACID",
+            "Normalization",
+        ],
     },
     {
-        skill: "Skill 4",
+        skill: "Java",
+        subSkill: ["Object-Oriented Programming"],
+    },
+    {
+        skill: "C",
+        subSkill: ["Memory Management"],
     },
 ];
 
@@ -23,10 +37,12 @@ export const Experiences = [
     {
         role: "Product Engineer",
         company: "Samsung Electronics",
-        time: "2022",
+        time: "February 2022 - July 2022",
         description: [
-            "— Used C# to develop the E-Pass (Product Verification System)",
-            "— Change Request Manager: Manage changes and improvements on the product.",
+            "Used C# to develop the E-Pass (Product Verification System)",
+            "Change Request Manager: Manage changes and improvements on the product.",
+            "Cooridinate and take lead in daily meeting regarding 'Action Items' on the manufacturing plant and products.",
+            "Communicate and Translate important news in English and Korean.",
         ],
     },
     // {

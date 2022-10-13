@@ -6,7 +6,8 @@ export default function Footer() {
     return (
         <>
             <div className="footer__container">
-                <h1 className="footer__name">HYEON JOON SONG</h1>
+                <p className="footer__element">Designed & Built by</p>
+                <h1 className="footer__element">HYEON JOON SONG</h1>
             </div>
         </>
     );

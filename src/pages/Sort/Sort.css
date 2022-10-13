@@ -25,9 +25,12 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
 
     width: 75%;
-    height: 50px;
+    height: fit-content;
 
     padding: 0 30px;
 
@@ -44,9 +47,11 @@
 
     background-color: var(--black);
     color: var(--white);
+
+    width: fit-content;
     
     font-family: 'Reem Kufi Ink', sans-serif;
-    padding: 0 15px;
+    padding: 0;
     font-size: 15px;
 }
 

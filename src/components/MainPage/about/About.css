@@ -11,11 +11,11 @@
 }
 
 .about__banner {
-    color: red;
+    color: var(--white);
 }
 
 .about__banner:hover {
-    color: white;
+    color: var(--red);
     transition: all 0.75s ease-out;
 }
 
@@ -23,8 +23,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     padding: 0%;
-    width: 75%;
+    width: 60%;
 
     color: white;
 }
@@ -42,20 +43,118 @@
 
 .about__background {
     margin-bottom: 25px;
+    width: 100%;
 }
 
-.about__skills {
+.about__skills__container {
     margin: 25px 0;
+    width: 100%;
 }
 
-.about__skill {
+.about__skills__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.about__skill__li {
     list-style: none;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.about__skill__header {
+    font-size: 30px;
+    width: fit-content;
+}
+
+.about__skill__header:hover {
+    color: red;
+    transition: all 0.75s ease-out;
+}
+
+.about__subskill__container {
+    color: var(--gray);
 }
 
 .about__experiences {
     margin: 25px 0;
+    width: 100%;
+}
+
+.about__experience__list {
+    padding: 0;
+    margin: 0;
+}
+
+.about__experience__li {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.about__experience__company {
+    font-size: 30px;
+    width: fit-content;
+    margin: 0;
+}
+
+.about__experience__company:hover {
+    color: red;
+    transition: all 0.75s ease-out;
+}
+
+.about__experience__description {
+    color: var(--gray);
 }
 
 .about__education {
     margin-top: 25px;
+    width: 100%;
+}
+
+.about__education__list {
+    padding: 0;
+    margin: 0;
+}
+
+.about__education__li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.about__education__school {
+    font-size: 30px;
+    width: fit-content;
+    margin: 0;
+}
+
+.about__education__school:hover {
+    color: red;
+    transition: all 0.75s ease-out;
+}
+
+.about__education__desc {
+    margin: 0;
+    color: var(--gray);
+}
+
+@media screen and (max-width: 830px) {
+    .about__skill__li {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .about__skill__li {
+        width: 50%;
+    }
+
+    .about__education__li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

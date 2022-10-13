@@ -1,11 +1,13 @@
 .footer__container {
     background-color: var(--white);;
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    width: 87.5%;
     justify-content: center;
-    align-items: center;
     padding: 0 0;
+    padding-left: 12.5%;
     font-family: 'Reem Kufi Ink', sans-serif;
+    color: black;
 }
 
 .footer__container:hover {
@@ -13,14 +15,10 @@
     transition: all 0.75s ease-out;
 }
 
-.footer__name {
-    width: 100%;
-    padding-left: 12.5%;
-    color: black;
+.footer__container:hover > .footer__element { color: var(--white); }
+
+.footer__element {
+    width: fit-content;
     margin: 0;
 }
 
-.footer__name:hover {
-    color: var(--white);
-    transition: all 0.75s ease-out;
-}

@@ -12,7 +12,7 @@ import sortImage from "./images/sorting.jpg";
 export default function Projects() {
     function featuredProjectsItemsHTML(item, index) {
         return (
-            <li className="featuredprojects__list__li">
+            <li className="featuredprojects__list__li" key={index}>
                 <img
                     src={sortImage}
                     alt="Sorting Algorithm Image"
@@ -32,8 +32,8 @@ export default function Projects() {
                         {item.description}
                     </div>
                     <div className="featuredprojects__tags__container">
-                        {item.tags.map((item) => {
-                            return projectTag(item);
+                        {item.tags.map((item, index) => {
+                            return featuredProjectTag(item, index);
                         })}
                     </div>
 
@@ -56,24 +56,46 @@ export default function Projects() {
         );
     }
 
-    function projectTag(item) {
-        return <div className="featuredprojects__tags">{item}</div>;
+    function featuredProjectTag(item, index) {
+        return (
+            <div className="featuredprojects__tags" key={index}>
+                {item}
+            </div>
+        );
     }
 
     // Menu Item HTML Rendering
     function projectsItemsHTML(item, index) {
-        return <li key={index} className="projects__list__li"></li>;
-    }
-
-    function noninteractiveLinkHTML(item, index) {
         return (
             <li key={index} className="projects__list__li">
-                <div className="projects__title">— {item.title}</div>
-                <a href={item.github_link} className="projects__githublink">
-                    Github
-                </a>
-                <p className="projects__description">{item.description}</p>
+                <div className="projects__list__li__header">
+                    <header className="projects__list__li__title">
+                        {item.title}
+                    </header>
+                    <a
+                        href={item.github_link}
+                        className="projects__list__li__link"
+                    >
+                        <AiFillGithub className="projects__list__li__icon" />
+                    </a>
+                </div>
+                <p className="projects__list__li__description">
+                    {item.description}
+                </p>
+                <div className="projects__list__li__tags">
+                    {item.tags.map((item, index) => {
+                        return projectTag(item, index);
+                    })}
+                </div>
             </li>
+        );
+    }
+
+    function projectTag(item, index) {
+        return (
+            <div className="projects__tags" key={index}>
+                {item}
+            </div>
         );
     }
 
