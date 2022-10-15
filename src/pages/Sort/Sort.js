@@ -7,6 +7,10 @@ import {
     quickSortVisualizer,
 } from "./SortingAlgorithms";
 
+import { Howl, Howler } from "howler";
+
+import Augh from "./Audio/augh.mp3";
+
 const MAIN_COLOR = "#EAE3D2";
 const CHANGE_COLOR = "red";
 
@@ -30,6 +34,14 @@ export default function Sort() {
         resetArray();
     }, []);
 
+    function playSound() {
+        var sound = new Howl({
+            src: ["./Audio/augh.mp3"],
+        });
+
+        sound.play();
+    }
+
     function mergeSortButton() {
         const animations = mergeSortAnimations(array);
         for (let i = 0; i < animations.length; i++) {
@@ -50,6 +62,7 @@ export default function Sort() {
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
+                    playSound();
                 }, (i * speed) / 3);
             }
         }
@@ -61,7 +74,7 @@ export default function Sort() {
             let arrayBars = document.getElementsByClassName("sort__array__bar");
             let [barOneIndex, barTwoIndex, swap] = animations[i];
             setTimeout(() => {
-                if (i % 2 == 1) {
+                if (i % 2 === 1) {
                     const barOne = arrayBars[barOneIndex];
                     const barTwo = arrayBars[barTwoIndex];
 

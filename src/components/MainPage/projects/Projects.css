@@ -9,6 +9,7 @@
 
 .projects__banner {
     color: var(--white);
+    margin-bottom: 75px;
 }
 
 .projects__banner:hover {
@@ -17,7 +18,7 @@
 }
 
 .featureprojects__image {
-    width: 500px;
+    width: 50%;
     border: 1px solid;
     padding: 5px;
 }
@@ -98,8 +99,6 @@
     justify-content: flex-end;
     align-items: center;
     height: fit-content;
-    
-
     text-decoration: none;
     color: var(--white);
 }
@@ -115,6 +114,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .projects__list__li {

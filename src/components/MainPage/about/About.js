@@ -66,14 +66,22 @@ export default function AboutMe() {
         );
     }
 
+    function backgroundHTML(item, index) {
+        return <p key={index}>{item}</p>;
+    }
+
     return (
         <>
             <div className="about__container" id="about">
                 <div className="about__contents">
                     <h1 className="about__banner">About Me</h1>
-                    <div className="about__background">
+                    <div className="about__background__container">
                         <div className="about__header">— MY BACKGROUND</div>
-                        <p>{Background[0].text}</p>
+                        <div className="about__background__list">
+                            {Background[0].text.map((item, index) => {
+                                return backgroundHTML(item, index);
+                            })}
+                        </div>
                     </div>
                     <div className="about__skills__container">
                         <div className="about__header">— SKILLS</div>

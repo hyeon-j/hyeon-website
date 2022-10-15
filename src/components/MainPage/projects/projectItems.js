@@ -21,7 +21,7 @@ export const ProjectsList = [
         title: "HEART FAILURE PREDICTION",
         description:
             "Predict patient's heart disease by patient's medical history/status using different models. Display the analytics of the predictions (Classification report, confusion metric, etc.).",
-        github_link: "#",
+        github_link: "https://github.com/hyeon-j/heartfailure-machinelearning",
         tags: ["Python", "scikit-learn", "Machine Learning"],
     },
     {

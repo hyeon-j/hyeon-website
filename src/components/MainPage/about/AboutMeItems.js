@@ -1,6 +1,12 @@
 export const Background = [
     {
-        text: "Hello my name is hyeon. Answer misery adieus add wooded how nay men before though. Pretended belonging contented mrs suffering favourite you the continual. Mrs civil nay least means tried drift. Natural end law whether but and towards certain. Furnished unfeeling his sometimes see day promotion. Quitting informed concerns can men now. Projection to or up conviction uncommonly delightful continuing. In appetite ecstatic opinions hastened by handsome admitted. <-- Randomly Generated to fill.",
+        text: [
+            "Hello, my name is Hyeon Joon Song.",
+            "I was born in Guam and lived in 3 different countries, 8 different cities and attended 8 different schools.",
+            "Ever since I was young, I moved to a new school and city almost every year. Although it meant that I would be constantly be separated from friends, I loved to experience the new environment with new people and cultures.",
+            "Throughout moving, I acquired the skills and mindset to be a quick learner and to adapt to any environment. From those experiences, I am able to think outside the box and be creative which will surely be beneficial to the team and the projects.",
+            "I enjoy and welcome new environments and challenges and I hope to be able to join your company!",
+        ],
     },
 ];
 
@@ -42,15 +48,18 @@ export const Experiences = [
             "Used C# to develop the E-Pass (Product Verification System)",
             "Change Request Manager: Manage changes and improvements on the product.",
             "Cooridinate and take lead in daily meeting regarding 'Action Items' on the manufacturing plant and products.",
-            "Communicate and Translate important news in English and Korean.",
+            "Communicate and Translate important information in English and Korean.",
         ],
     },
-    // {
-    //     role: 'Placeholder',
-    //     company: 'Placeholder',
-    //     time: 'Placeholder',
-    //     description : 'Placeholder'
-    // },
+    {
+        role: "Programming Tutor",
+        company: "Outschool",
+        time: "April 2019 - August 2019",
+        description: [
+            "Taught Java & Core Programming Logic to students.",
+            "Students ages ranged from elementary school age to adult. ",
+        ],
+    },
 ];
 
 export const Education = [
@@ -60,10 +69,4 @@ export const Education = [
         major: "Computer Science",
         time: "2017 - 2021",
     },
-    //   {
-    //     school: "Placeholder",
-    //     level: "Placeholder",
-    //     major: "Placeholder",
-    //     time: "Placeholder",
-    //   },
 ];
