@@ -7,14 +7,12 @@ import { BsCodeSlash } from "react-icons/bs";
 import "./Projects.css";
 import { ProjectsList, featuredProjectsList } from "./projectItems";
 
-import sortImage from "./images/sorting.jpg";
-
 export default function Projects() {
     function featuredProjectsItemsHTML(item, index) {
         return (
             <li className="featuredprojects__list__li" key={index}>
                 <img
-                    src={sortImage}
+                    src={item.pictureURL}
                     alt="Sorting Algorithm Image"
                     className="featureprojects__image"
                 />

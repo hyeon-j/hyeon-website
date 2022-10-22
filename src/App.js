@@ -9,19 +9,20 @@ import Sort from "./pages/Sort/Sort";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar.js";
 import SimpleNavBar from "./components/SimpleNavbar/SimpleNavbar.js";
+import Api from "./pages/Api/Api";
 
 function App() {
     return (
         <>
             <Routes>
                 <Route path="/hyeon-website" element={<Navbar />} />
-                <Route path="/path/" element={<SimpleNavBar />} />
+                <Route path="/api/" element={<SimpleNavBar />} />
                 <Route path="/sort/" element={<SimpleNavBar />} />
             </Routes>
 
             <Routes>
                 <Route path="/hyeon-website" element={<Home />} />
-                <Route path="/path/" element={<Path />} />
+                <Route path="/api/" element={<Api />} />
                 <Route path="/sort/" element={<Sort />} />
             </Routes>
         </>

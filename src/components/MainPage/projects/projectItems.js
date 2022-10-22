@@ -1,3 +1,5 @@
+import sortImage from "./images/sorting.jpg";
+
 export const featuredProjectsList = [
     {
         title: "SORTING ALGORITHM VISUALIZER",
@@ -6,14 +8,16 @@ export const featuredProjectsList = [
         interactive_link: "/sort",
         github_link: "https://github.com/hyeon-j/hyeon-website",
         tags: ["JavaScript", "React"],
+        pictureURL: sortImage,
     },
-    // {
-    //   title: "PATH FINDING ALGORITHM VISUALIZER",
-    //   description: "Placeholder",
-    //   interactive_link: "/path",
-    //   github_link: "#",
-    //   interactive: true,
-    // },
+    {
+        title: "Placeholder",
+        description: "Placeholder",
+        interactive_link: "/api",
+        github_link: "#",
+        tags: ["JavaScript", "React"],
+        pictureURL: null,
+    },
 ];
 
 export const ProjectsList = [
