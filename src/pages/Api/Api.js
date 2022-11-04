@@ -8,17 +8,16 @@ import "./Api.css";
 import { coronaOptions, getLanguageOptions } from "./apiFunctions";
 
 export default function Api() {
-    const languageForm = useRef();
+    const currencyForm = useRef();
 
     const [coronaData, setCoronaData] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+    const [currencyList, setCurrencyList] = useState([]);
 
-    const [translateLanguages, setTranslateLanguages] = useState([]);
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         coronaDataFetch();
-        translateLanguageFetch();
-
+        currencyListFetch();
         setLoading(false);
     }, [isLoading]);
 
@@ -37,57 +36,24 @@ export default function Api() {
             });
     };
 
-    const translateLanguageFetch = () => {
-        axios
-            .request(getLanguageOptions)
-            .then(function (response) {
-                const languages = [];
-                for (let i = 0; i < response.data.data.languages.length; i++) {
-                    const languageCode =
-                        response.data.data.languages[i]["language"];
-                    if (ISO6391.getName(languageCode) != "")
-                        languages.push(languageCode);
-                }
-
-                setTranslateLanguages(languages);
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+    const currencyListFetch = () => {
+        const response = axios.get(
+            "https://www.amdoren.com/api/currency_list.php?api_key=SNpi29cakbTtjVy4AKW7zk6XUJWitn"
+        );
+        console.log(response);
     };
 
-    const translateText = (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const formProps = Object.fromEntries(formData);
-        console.log(formProps["translate__input"]);
+    // const getCurrencyExchange = (e) => {
+    //     e.preventDefault();
 
-        const encodedParams = new URLSearchParams();
-        encodedParams.append("q", formProps["translate__input"]);
-        encodedParams.append("target", formProps["translate__lang"]);
-        encodedParams.append("source", "en");
+    //     const formData = new FormData(e.target);
+    //     const formProps = Object.fromEntries(formData);
+    //     console.log(formProps["translate__input"]);
 
-        const options = {
-            method: "POST",
-            url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
-            headers: {
-                "content-type": "application/x-www-form-urlencoded",
-                "X-RapidAPI-Key":
-                    "8c9f96ab58mshad751c6174d50fap11163djsn6751e466b550",
-                "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-            },
-            data: encodedParams,
-        };
-
-        axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
-    };
+    //     axios.get(
+    //         "https://www.amdoren.com/api/currency.php?api_key=SNpi29cakbTtjVy4AKW7zk6XUJWitn&from=USD&to=EUR"
+    //     );
+    // };
 
     if (isLoading) {
         return <h1>loading...</h1>;
@@ -97,69 +63,45 @@ export default function Api() {
                 <div className="api__container">
                     <div className="api__contents">
                         <div className="api__app__container">
-                            <a
-                                href="https://rapidapi.com/googlecloud/api/google-translate1"
-                                className="api__app__title"
-                            >
-                                Language Traslation
-                            </a>
-                            <div className="api__translate__contents">
+                            <div className="api__app__title">
+                                Currency Exchange
+                            </div>
+                            <div>
+                                Powered by{" "}
+                                <a href="https://www.amdoren.com">Amdoren</a>
+                            </div>
+                            <div className="api__currency__contents">
                                 <span className="api__app__description">
                                     Placeholder for language translate
                                 </span>
                                 <div>
                                     <form
-                                        ref={languageForm}
-                                        onSubmit={translateText}
+                                        ref={currencyForm}
+                                        onSubmit={() => {}}
                                         className="translate__form"
                                     >
-                                        <div className="translate__textsection">
-                                            <textarea
-                                                type="text"
-                                                rows="4"
-                                                name="translate__input"
-                                                placeholder="Enter text - Language Auto Detected"
-                                                className="translate__input"
-                                            />
-                                            <div>
-                                                <select
-                                                    name="translate__lang"
-                                                    id="translate__lang"
-                                                    className="translate__select"
-                                                >
-                                                    {translateLanguages.map(
-                                                        (lang, index) => {
-                                                            return (
-                                                                <option
-                                                                    value={lang}
-                                                                    key={index}
-                                                                >
-                                                                    {ISO6391.getName(
-                                                                        lang
-                                                                    )}
-                                                                </option>
-                                                            );
-                                                        }
-                                                    )}
-                                                </select>
-                                                <div className="contact__section">
-                                                    <textarea
-                                                        type="text"
-                                                        rows="4"
-                                                        name="temp"
-                                                        placeholder="Enter text"
-                                                        className="translate__input"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <input
-                                            className="translate__submit"
-                                            type="submit"
-                                            value="TRANSLATE"
-                                        />
+                                        <select
+                                            name="translate__lang"
+                                            id="translate__lang"
+                                            className="translate__select"
+                                        >
+                                            {/* {translateLanguages.map(
+                                                (lang, index) => {
+                                                    return (
+                                                        <option
+                                                            value={lang}
+                                                            key={index}
+                                                        >
+                                                            {ISO6391.getName(
+                                                                lang
+                                                            )}
+                                                        </option>
+                                                    );
+                                                }
+                                            )} */}
+                                        </select>
                                     </form>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
