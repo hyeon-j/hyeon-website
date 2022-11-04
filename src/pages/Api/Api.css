@@ -13,6 +13,7 @@
 
 .api__contents {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
@@ -33,15 +34,18 @@
     border: 1px solid var(--white);
     border-radius: 20px;
 
+    margin: 20px 0;
+
     padding: 15px;
 
 }
 
 .api__app__title {
+    font-size: 35px;
     color: var(--white);
     text-align: center;
     margin: 20px 0;
-    width: 100%;
+    width: fit-content;
 }
 
 .api__app__title:hover {
@@ -49,8 +53,15 @@
     transition: all 0.75s ease-out;
 }
 
-.api__app__contents {
+.api__corona__contents {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.api__translate__contents {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
@@ -67,4 +78,20 @@
 
 .api__app__corona__data {
     font-size: 20px;
+}
+
+.translate__textsection {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.translate__input {
+    background-color: var(--offblack);
+    border: 1px solid var(--white);
+    border-radius: 2px;
+    height: 180px;
+    font-size: 18px;
+    color: white;
+    resize: vertical;
 }
