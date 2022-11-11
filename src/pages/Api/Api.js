@@ -8,7 +8,7 @@ import "./Api.css";
 import { coronaOptions, getLanguageOptions } from "./apiFunctions";
 
 export default function Api() {
-    const languageForm = useRef();
+    const movieForm = useRef();
 
     const [coronaData, setCoronaData] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -17,7 +17,6 @@ export default function Api() {
 
     useEffect(() => {
         coronaDataFetch();
-        translateLanguageFetch();
 
         setLoading(false);
     }, [isLoading]);
@@ -37,60 +36,29 @@ export default function Api() {
             });
     };
 
-    const translateLanguageFetch = () => {
-        axios
-            .request(getLanguageOptions)
-            .then(function (response) {
-                const languages = [];
-                for (let i = 0; i < response.data.data.languages.length; i++) {
-                    const languageCode =
-                        response.data.data.languages[i]["language"];
-                    if (ISO6391.getName(languageCode) != "")
-                        languages.push(languageCode);
-                }
-
-                setTranslateLanguages(languages);
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
-    };
-
-    const translateText = (e) => {
+    const searchMovie = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const formProps = Object.fromEntries(formData);
-        console.log(formProps["translate__input"]);
 
-        const encodedParams = new URLSearchParams();
-        encodedParams.append("q", formProps["translate__input"]);
-        encodedParams.append("target", formProps["translate__lang"]);
-        encodedParams.append("source", "en");
+        const movieInput = formProps["movie__input"].split(" ").join("%20");
+        console.log(movieInput);
 
         const options = {
-            method: "POST",
+            method: "GET",
             headers: {
-                "content-type": "application/x-www-form-urlencoded",
-                "Accept-Encoding": "application/gzip",
                 "X-RapidAPI-Key":
                     "8c9f96ab58mshad751c6174d50fap11163djsn6751e466b550",
-                "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
+                "X-RapidAPI-Host": "imdb8.p.rapidapi.com",
             },
-            body: encodedParams,
         };
 
         fetch(
-            "https://google-translate1.p.rapidapi.com/language/translate/v2",
+            "https://imdb8.p.rapidapi.com/auto-complete?q=" + movieInput,
             options
         )
             .then((response) => response.json())
-            .then((response) => {
-                console.log(response);
-                // const translatedText =
-                //     response.data.translations[0]["translatedText"];
-                // document.getElementById("translate__response").textContent =
-                //     translatedText;
-            })
+            .then((response) => console.log(response))
             .catch((err) => console.error(err));
     };
 
@@ -106,60 +74,31 @@ export default function Api() {
                                 href="https://rapidapi.com/googlecloud/api/google-translate1"
                                 className="api__app__title"
                             >
-                                Language Traslation
+                                IMDb Movie Search
                             </a>
                             <span className="api__app__description">
-                                Placeholder for language translate
+                                Placeholder for IMDb Movie Search
                             </span>
                             <form
-                                ref={languageForm}
-                                onSubmit={translateText}
-                                className="translate__form"
+                                ref={movieForm}
+                                onSubmit={searchMovie}
+                                className="movie__form"
                             >
-                                <div className="main">
-                                    <textarea
-                                        type="text"
-                                        rows="4"
-                                        cols="100"
-                                        name="translate__input"
-                                        placeholder="Enter text - Language Auto Detected"
-                                        className="translate__input"
-                                    />
-                                </div>
+                                <textarea
+                                    type="text"
+                                    rows="2"
+                                    cols="50"
+                                    name="movie__input"
+                                    placeholder="Search IMDb"
+                                    className="translate__input"
+                                />
 
-                                <div>
-                                    <select
-                                        name="translate__lang"
-                                        id="translate__lang"
-                                        className="translate__select"
-                                    >
-                                        {translateLanguages.map(
-                                            (lang, index) => {
-                                                return (
-                                                    <option
-                                                        value={lang}
-                                                        key={index}
-                                                    >
-                                                        {ISO6391.getName(lang)}
-                                                    </option>
-                                                );
-                                            }
-                                        )}
-                                    </select>
-
-                                    <input
-                                        className="translate__submit"
-                                        type="submit"
-                                        value="TRANSLATE"
-                                    />
-                                </div>
+                                <input
+                                    className="movie__submit"
+                                    type="submit"
+                                    value="TRANSLATE"
+                                />
                             </form>
-                            <span
-                                id="translate__response"
-                                className="translate__response"
-                            >
-                                Placeholder
-                            </span>
                         </div>
 
                         <div className="api__app__container">
