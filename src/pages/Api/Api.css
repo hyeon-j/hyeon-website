@@ -64,6 +64,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    width: 75%;
 }
 
 .api__app__description {
@@ -85,13 +87,20 @@
     flex-direction: row;
 }
 
+.main {
+    width: 100%;
+    background: gray;
+    display: inline;
+}
 
-.translate__input {
+
+.main > .translate__input {
     background-color: var(--offblack);
     border: 1px solid var(--white);
     border-radius: 2px;
     height: 180px;
     font-size: 18px;
+    width: 100%;
     color: white;
     resize: vertical;
 }
