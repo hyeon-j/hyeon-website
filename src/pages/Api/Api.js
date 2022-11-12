@@ -13,7 +13,7 @@ export default function Api() {
     const [coronaData, setCoronaData] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
-    const [translateLanguages, setTranslateLanguages] = useState([]);
+    const [movieList, setMovieList] = useState([]);
 
     useEffect(() => {
         coronaDataFetch();
@@ -36,13 +36,12 @@ export default function Api() {
             });
     };
 
-    const searchMovie = (e) => {
+    const searchIMDB = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const formProps = Object.fromEntries(formData);
 
         const movieInput = formProps["movie__input"].split(" ").join("%20");
-        console.log(movieInput);
 
         const options = {
             method: "GET",
@@ -58,8 +57,126 @@ export default function Api() {
             options
         )
             .then((response) => response.json())
-            .then((response) => console.log(response))
+            .then((response) => {
+                const resultArray = response["d"];
+
+                const imdbURL = "https://www.imdb.com/";
+
+                const totalResultsList = [];
+                for (let i = 0; i < resultArray.length; i++) {
+                    const result = resultArray[i];
+
+                    const resultList = [];
+
+                    if (result["id"][0] === "t") {
+                        resultList.push(true);
+                        resultList.push(imdbURL + "title/" + result["id"]);
+                        resultList.push(result["l"]);
+                        resultList.push(result["q"]);
+                        resultList.push(result["rank"]);
+                        resultList.push(result["s"]);
+                        if ("i" in result) {
+                            resultList.push([
+                                result["i"]["width"],
+                                result["i"]["height"],
+                                result["i"]["imageUrl"],
+                            ]);
+                        }
+                    } else {
+                        resultList.push(false);
+                        resultList.push(imdbURL + "name/" + result["id"]);
+                        resultList.push(result["l"]);
+                        resultList.push(result["rank"]);
+                        resultList.push(result["s"]);
+                        if ("i" in result) {
+                            resultList.push([
+                                result["i"]["width"],
+                                result["i"]["height"],
+                                result["i"]["imageUrl"],
+                            ]);
+                        }
+                    }
+
+                    totalResultsList.push(resultList);
+                }
+
+                setMovieList(totalResultsList);
+            })
             .catch((err) => console.error(err));
+    };
+
+    const renderIMDB = (item, index) => {
+        if (item[0]) {
+            return (
+                <>
+                    <div key={index} className="movie__result">
+                        {renderIMDBImage(item, 6)}
+                        <div className="movie__result__info">
+                            <a
+                                href={item[1]}
+                                className="movie__result__info__link"
+                            >
+                                {item[2]}
+                            </a>
+                            <span className="movie__result__info__sub">
+                                Type: {item[3]}
+                            </span>
+                            <span className="movie__result__info__sub">
+                                Rank: {item[4]}
+                            </span>
+                            <span className="movie__result__info__sub">
+                                Main Actors: {item[5] === "" ? "N/A" : item[5]}
+                            </span>
+                        </div>
+                    </div>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <div key={index} className="movie__result">
+                        {renderIMDBImage(item, 5)}
+                        <div className="movie__result__info">
+                            <a
+                                href={item[1]}
+                                className="movie__result__info__link"
+                            >
+                                {item[2]}
+                            </a>
+                            <span className="movie__result__info__sub">
+                                Rank: {item[3]}
+                            </span>
+                            <span className="movie__result__info__sub">
+                                Description: {item[4]}
+                            </span>
+                        </div>
+                    </div>
+                </>
+            );
+        }
+    };
+
+    const renderIMDBImage = (item, imageIndex) => {
+        let imageLink =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png";
+        let ratio = 1;
+        let alt = "No Image";
+
+        if (item.length > imageIndex) {
+            imageLink = item[imageIndex][2];
+            ratio = item[imageIndex][1] / item[imageIndex][0];
+            alt = item[2];
+        }
+
+        return (
+            <img
+                src={imageLink}
+                alt={alt}
+                width={300}
+                height={300 * ratio}
+                className="movie__result__image"
+            />
+        );
     };
 
     if (isLoading) {
@@ -77,11 +194,13 @@ export default function Api() {
                                 IMDb Movie Search
                             </a>
                             <span className="api__app__description">
-                                Placeholder for IMDb Movie Search
+                                Enter keyword to search in IMDb. It provides
+                                link, image and information about the
+                                film/video.
                             </span>
                             <form
                                 ref={movieForm}
-                                onSubmit={searchMovie}
+                                onSubmit={searchIMDB}
                                 className="movie__form"
                             >
                                 <textarea
@@ -90,15 +209,22 @@ export default function Api() {
                                     cols="50"
                                     name="movie__input"
                                     placeholder="Search IMDb"
-                                    className="translate__input"
+                                    className="movie__input"
                                 />
 
                                 <input
                                     className="movie__submit"
                                     type="submit"
-                                    value="TRANSLATE"
+                                    value="Search"
                                 />
                             </form>
+                            <div className="movie__results__container">
+                                {movieList.length < 1
+                                    ? null
+                                    : movieList.map((item, index) => {
+                                          return renderIMDB(item, index);
+                                      })}
+                            </div>
                         </div>
 
                         <div className="api__app__container">

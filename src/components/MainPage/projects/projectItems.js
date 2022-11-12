@@ -1,4 +1,5 @@
 import sortImage from "./images/sorting.jpg";
+import apiImage from "./images/API.JPG";
 
 export const featuredProjectsList = [
     {
@@ -6,17 +7,20 @@ export const featuredProjectsList = [
         description:
             "Interactive Merge, Bubble & Quick Sort algorithm visualizer. Able to customize amounts of bar and animation speed.",
         interactive_link: "/sort",
-        github_link: "https://github.com/hyeon-j/hyeon-website",
+        github_link:
+            "https://github.com/hyeon-j/hyeon-website/tree/master/src/pages/Sort",
         tags: ["JavaScript", "React"],
         pictureURL: sortImage,
     },
     {
-        title: "Placeholder",
-        description: "Placeholder",
+        title: "IMDb & Corona Virus API Calls",
+        description:
+            "Search IMDb for actors or movies/shows with a keyword. Shows most recent Corona Virus Statistics",
         interactive_link: "/api",
-        github_link: "#",
+        github_link:
+            "https://github.com/hyeon-j/hyeon-website/tree/master/src/pages/Api",
         tags: ["JavaScript", "React"],
-        pictureURL: null,
+        pictureURL: apiImage,
     },
 ];
 
