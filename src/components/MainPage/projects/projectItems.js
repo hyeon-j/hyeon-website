@@ -1,5 +1,5 @@
 import sortImage from "./images/sorting.jpg";
-import apiImage from "./images/API.JPG";
+import apiImage from "./images/api.JPG";
 
 export const featuredProjectsList = [
     {
@@ -13,7 +13,7 @@ export const featuredProjectsList = [
         pictureURL: sortImage,
     },
     {
-        title: "IMDb & Corona Virus API Calls",
+        title: "IMDb & CORONA VIRUS API",
         description:
             "Search IMDb for actors or movies/shows with a keyword. Shows most recent Corona Virus Statistics",
         interactive_link: "/api",

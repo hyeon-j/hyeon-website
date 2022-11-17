@@ -1,11 +1,13 @@
-import React from "react";
+// React / JavaScript
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { AiFillGithub } from "react-icons/ai";
-import { GoLinkExternal } from "react-icons/go";
-import { BsCodeSlash } from "react-icons/bs";
-
-import "./Projects.css";
 import { ProjectsList, featuredProjectsList } from "./projectItems";
+import { GoLinkExternal } from "react-icons/go";
+
+// Styling
+import "./Projects.css";
+import { BsArrowsCollapse } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
 
 export default function Projects() {
     function featuredProjectsItemsHTML(item, index) {
@@ -62,6 +64,11 @@ export default function Projects() {
         );
     }
 
+    function handleClicked(index) {
+        const menu = document.querySelector("#footer" + index);
+        menu.classList.toggle("projects__active");
+    }
+
     // Menu Item HTML Rendering
     function projectsItemsHTML(item, index) {
         return (
@@ -77,14 +84,25 @@ export default function Projects() {
                         <AiFillGithub className="projects__list__li__icon" />
                     </a>
                 </div>
-                <p className="projects__list__li__description">
-                    {item.description}
-                </p>
-                <div className="projects__list__li__tags">
-                    {item.tags.map((item, index) => {
-                        return projectTag(item, index);
-                    })}
+                <div
+                    id={"footer" + index}
+                    className="projects__list__li__footer"
+                >
+                    <p className="projects__list__li__description">
+                        {item.description}
+                    </p>
+                    <div className="projects__list__li__tags">
+                        {item.tags.map((item, index) => {
+                            return projectTag(item, index);
+                        })}
+                    </div>
                 </div>
+                <button
+                    onClick={() => handleClicked(index)}
+                    className="projects__list__button"
+                >
+                    <BsArrowsCollapse className="" />
+                </button>
             </li>
         );
     }

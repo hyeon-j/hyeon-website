@@ -1,4 +1,4 @@
-import React, { useState, useRef, Link, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Sort.css";
 import {
     mergeSortAnimations,
@@ -7,19 +7,21 @@ import {
     quickSortVisualizer,
 } from "./SortingAlgorithms";
 
+import { BiRefresh } from "react-icons/bi";
+
 const MAIN_COLOR = "#EAE3D2";
 const CHANGE_COLOR = "red";
 
 export default function Sort() {
     const [array, setArray] = useState([]);
-    const [value, setValue] = useState(window.innerWidth / 4 - 20);
+    const [value, setValue] = useState(window.innerWidth / 4 - 50);
     const [speed, setSpeed] = useState(0.5);
 
     function resetArray() {
         const arr = [];
 
         for (let i = 0; i < value; i++) {
-            arr.push(randomInt(10, 750));
+            arr.push(randomInt(10, window.innerHeight - 175));
         }
 
         setArray(arr);
@@ -152,31 +154,34 @@ export default function Sort() {
                     ))}
                 </div>
                 <nav className="sort__controls">
-                    <button className="sort__buttons" onClick={resetArray}>
-                        GENERATE NEW ARRAY
+                    <button
+                        className="sort__buttons sort__icon"
+                        onClick={resetArray}
+                    >
+                        <BiRefresh />
                     </button>
                     <button
                         className="sort__buttons"
                         onClick={() => mergeSortButton()}
                     >
-                        MERGE SORT
+                        MERGE
                     </button>
                     <button
                         className="sort__buttons"
                         onClick={() => bubbleSortButton()}
                     >
-                        BUBBLE SORT
+                        BUBBLE
                     </button>
                     <button
                         className="sort__buttons"
                         onClick={() => quickSortButton()}
                     >
-                        QUICK SORT
+                        QUICK
                     </button>
                     <div className="sort__range__container">
                         <div className="sort__range__info">
-                            <p>Number of Bars:</p>
-                            <p>Animation Speed:</p>
+                            <p># of Bars:</p>
+                            <p>Speed:</p>
                         </div>
                         <div className="sort__range">
                             <input

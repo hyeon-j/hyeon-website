@@ -38,3 +38,12 @@
     color: red;
     transition: all 0.75s ease-out;
 }
+
+@media screen and (max-width: 475px) {
+    .intro__text {
+        font-size: 35px;
+    }
+    .intro__name {
+        font-size: 75px;
+    }
+}

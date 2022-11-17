@@ -4,15 +4,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 75px;
     font-family: 'Reem Kufi Ink', sans-serif;
+    height: fit-content;
 }
 
 .sort__bar__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 750px;
+    height: fit-content;
 }
 
 .sort__array__bar {
@@ -22,10 +23,16 @@
 }
 
 .sort__controls {
-    margin-top: 20px;
+
+    flex-wrap: wrap;
+
+    position: fixed;
+    bottom: 10px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 
     flex-wrap: wrap;
 
@@ -43,6 +50,7 @@
     border-radius: 40px;
 }
 
+
 .sort__buttons {
 
     background-color: var(--black);
@@ -53,6 +61,26 @@
     font-family: 'Reem Kufi Ink', sans-serif;
     padding: 0;
     font-size: 15px;
+    border: 0;
+}
+
+@media screen and (max-width: 950px) {
+    .sort__controls {
+        justify-content: center;
+    }
+    .sort__buttons {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sort__buttons {
+        width: 25%;
+    }
+}
+
+.sort__icon {
+    font-size: 20px;
 }
 
 .sort__range__container {

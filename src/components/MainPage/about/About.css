@@ -12,7 +12,7 @@
 
 .about__banner {
     color: var(--white);
-    margin-bottom: 75px;
+    margin-bottom: 2rem;
 }
 
 .about__banner:hover {
@@ -158,5 +158,19 @@
 @media screen and (max-width: 970px) {
     .about__skill__li {
         width: 50%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .about__skill__li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .about__education__li {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

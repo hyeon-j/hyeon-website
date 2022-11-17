@@ -65,7 +65,7 @@ export const Experiences = [
 export const Education = [
     {
         school: "Pennsylvania State University",
-        level: "Bachelor' degree",
+        level: "Bachelor's degree",
         major: "Computer Science",
         time: "2017 - 2021",
     },
